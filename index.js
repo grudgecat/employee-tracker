@@ -99,7 +99,7 @@ async function addDepartment() {
     }
   );
   await query('INSERT INTO departments (name) VALUES (?);', selectDepartment.deptName);
-  console.log(`Your new Department ${selectDepartment.deptName} has been added
+  console.log(`New Department ${selectDepartment.deptName} has been added
   `);
   menu();
 }
@@ -185,8 +185,8 @@ async function addEmployee() {
   ]
   );
   await query('INSERT INTO employees(first_name, last_name, role_id, manager_id) VALUES (?,?,?,?);', [newEmployeeInfo.firstName, newEmployeeInfo.lastName, newEmployeeInfo.roleList, newEmployeeInfo.managerList]);
-  console.log(`New employee has been added`);
-  menu();
+  console.log(`New employee ${newEmployeeInfo.firstName} ${newEmployeeInfo.lastName} has been added`);
+  await menu();
 }
 
 async function updateEmployeeRole() {
